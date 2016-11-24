@@ -1,0 +1,3 @@
+[submodule "MaddoCppLib"]
+	path = MaddoCppLib
+	url = git@gitlab.com:MaddoScientisto/MaddoCppLib.git
