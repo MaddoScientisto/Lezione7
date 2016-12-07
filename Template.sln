@@ -1,11 +1,13 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
-VisualStudioVersion = 15.0.25914.0
+VisualStudioVersion = 15.0.25928.0
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "2016-11-24", "2016-11-24\2016-11-24.vcxproj", "{BBB7360A-5968-42A0-A933-2553A589B1B3}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Template", "2016-11-24\2016-11-24.vcxproj", "{BBB7360A-5968-42A0-A933-2553A589B1B3}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "MaddoLib", "..\Lezione3\MaddoCppLib\MaddoLib.vcxproj", "{BE812505-B2B6-4A6F-AD2F-D575C2DF6C6F}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "MaddoLib", "MaddoCppLib\MaddoLib.vcxproj", "{BE812505-B2B6-4A6F-AD2F-D575C2DF6C6F}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Library", "Library", "{6F9C203B-CC79-4100-88EE-4D778B3DE4FA}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -34,5 +36,8 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{BE812505-B2B6-4A6F-AD2F-D575C2DF6C6F} = {6F9C203B-CC79-4100-88EE-4D778B3DE4FA}
 	EndGlobalSection
 EndGlobal
