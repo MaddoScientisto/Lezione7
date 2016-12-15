@@ -85,7 +85,7 @@ void InitVector(vector<Tank>* const tanksVector, int amount)
 void OutputTanks(const std::vector<Tank>* const tanksVector)
 {
 	int i = 1;
-	for (const auto tank : *tanksVector)
+	for (auto const &tank : *tanksVector)
 	{
 		if (!tank.IsDead())
 			tank.OutputStatus();
@@ -98,27 +98,28 @@ Mission SelectMission()
 	MaddoLib::OutputLine("[1] Pattugliamento");
 	MaddoLib::OutputLine("[2] Attacco postazione nemica");
 	MaddoLib::OutputLine("[3]  Rifornimento e riparazione ");
-	m = MaddoLib::InputInt("Selezionare la missione: ", "Valore non corretto", 1, 3);
+	MaddoLib::OutputLine("[4] Engine Upgrade (10 valor)");
+	MaddoLib::OutputLine("[5] Armor Upgrade (20 valor)");
+	MaddoLib::OutputLine("[6] Shell Upgrade (30 valor)");
+	m = MaddoLib::InputInt("Selezionare la missione: ", "Valore non corretto", 1, 6);
 	return static_cast<Mission>(m - 1);
 }
 
 void DoMission(std::vector<Tank>* const tanksVector, const Mission mission, int* valor)
 {
-	int v = 0;
+
+	//controllare qui se il valore è sufficiente
+	
 
 	for (auto & tank : *tanksVector)
 	{
 		if (!tank.IsDead())
-			v = tank.DoMission(mission);
+		{
+			*valor += tank.DoMission(mission);
+		}
 	}
-	if (mission != Refuel)
-	{
-		*valor += v;
-	}
-	else
-	{
-		*valor -= 5;
-	}
+	
+	
 }
 
 bool IsAnyTankAlive(const std::vector<Tank>* const tanksVector)

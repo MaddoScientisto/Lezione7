@@ -18,10 +18,15 @@ private:
 	int _health = 100;
 	int _fuel = 100;
 	int _ammo = 100;
+	bool _hasEngineUpgrade = false;
+	bool _hasArmorUpgrade = false;
+	bool _hasShellUpgrade = false;
 	void Tank::OutputStat(std::string label, int value) const;
 	int PatrolMission();
 	int AttackMission();
 	void RefuelMission();
-	void AnnounceDeath();
+	void AnnounceDeath() const;
+	void OutputUpgrades() const;
+	void ArmorUpgrade();
 };
 

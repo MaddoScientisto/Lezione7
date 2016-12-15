@@ -18,6 +18,7 @@ void Tank::OutputStatus() const
 	OutputStat("Ammo: ", _ammo);
 	OutputStat("Fuel: ", _fuel);
 	OutputStat("Health: ", _health);
+	OutputUpgrades();
 	MaddoLib::OutputLine();
 }
 
@@ -36,7 +37,11 @@ int Tank::DoMission(Mission mission)
 	else if (mission == Mission::Refuel)
 	{
 		RefuelMission();
-		v = -5;
+		v = -1;
+	}
+	else if (mission == Mission::ArmorUpgrade)
+	{
+		
 	}
 
 	
@@ -95,7 +100,16 @@ void Tank::RefuelMission()
 	if (_ammo > 100) _ammo = 100;
 }
 
-void Tank::AnnounceDeath()
+void Tank::AnnounceDeath() const
 {
 	MaddoLib::OutputLine("Rip carro " + _name);
+}
+
+void Tank::OutputUpgrades() const
+{
+	MaddoLib::Output("Upgrades: ");
+	if (_hasArmorUpgrade) MaddoLib::Output("A");
+	if (_hasEngineUpgrade) MaddoLib::OutputLine("E");
+	if (_hasShellUpgrade) MaddoLib::OutputLine("S");
+	MaddoLib::OutputLine();
 }
