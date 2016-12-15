@@ -22,6 +22,11 @@ void Tank::OutputStatus() const
 	MaddoLib::OutputLine();
 }
 
+/**
+ * \brief 
+ * \param mission 
+ * \return In modalità missione ritorna il valore perso o guadagnato, in modalità upgrade ritorna il numero di valore speso se l'upgrade ha avuto successo o 0 se non lo ha avuto
+ */
 int Tank::DoMission(Mission mission)
 {
 	int v = 0;
@@ -41,11 +46,34 @@ int Tank::DoMission(Mission mission)
 	}
 	else if (mission == Mission::ArmorUpgrade)
 	{
-		
+		if (!_hasArmorUpgrade)
+		{
+			_hasArmorUpgrade = true;
+			return -20;
+		}
+	}
+	else if (mission == Mission::EngineUpgrade) 
+	{
+		if (!_hasEngineUpgrade)
+		{
+			_hasEngineUpgrade = true;
+			return -10;
+		}
+	}
+	else if (mission == Mission::ShellUpgrade) {
+		if (!_hasShellUpgrade)
+		{
+			_hasShellUpgrade = true;
+			return -30;
+		}
+	}
+	else
+	{
+		MaddoLib::OutputLine("Error");
 	}
 
 	
-	if (v == 0)
+	if (IsDead())
 	{
 		AnnounceDeath();
 		return 0;

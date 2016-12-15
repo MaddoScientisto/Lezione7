@@ -43,7 +43,11 @@ void Game()
 		OutputTanks(&tanks);
 		MaddoLib::OutputLine("Valore: " + MaddoLib::ToString(valor));
 		m = SelectMission();
+
 		MaddoLib::OutputLine("Missione in corso...");
+
+
+
 		DoMission(&tanks, m, &valor);
 		MaddoLib::Pause();
 		if (!IsAnyTankAlive(&tanks))
@@ -84,42 +88,62 @@ void InitVector(vector<Tank>* const tanksVector, int amount)
 
 void OutputTanks(const std::vector<Tank>* const tanksVector)
 {
-	int i = 1;
 	for (auto const &tank : *tanksVector)
 	{
-		if (!tank.IsDead())
-			tank.OutputStatus();
+		if (tank.IsDead()) continue;
+		
+		tank.OutputStatus();
 	}
 }
 
 Mission SelectMission()
 {
 	int m;
+	Mission mm;
 	MaddoLib::OutputLine("[1] Pattugliamento");
 	MaddoLib::OutputLine("[2] Attacco postazione nemica");
 	MaddoLib::OutputLine("[3]  Rifornimento e riparazione ");
 	MaddoLib::OutputLine("[4] Engine Upgrade (10 valor)");
 	MaddoLib::OutputLine("[5] Armor Upgrade (20 valor)");
 	MaddoLib::OutputLine("[6] Shell Upgrade (30 valor)");
+
+
 	m = MaddoLib::InputInt("Selezionare la missione: ", "Valore non corretto", 1, 6);
-	return static_cast<Mission>(m - 1);
+	mm = static_cast<Mission>(m - 1);
+
+	return mm;
 }
 
-void DoMission(std::vector<Tank>* const tanksVector, const Mission mission, int* valor)
+bool DoMission(std::vector<Tank>* const tanksVector, const Mission mission, int* const valor)
 {
 
 	//controllare qui se il valore è sufficiente
-	
+	if ((mission == Mission::ShellUpgrade && *valor < 30) || (mission == Mission::ArmorUpgrade && *valor < 20) || (mission == Mission::EngineUpgrade && *valor < 10))
+	{
+		MaddoLib::OutputLine("Valore insufficiente)");
+		return false;
+	}
 
+	int v;
 	for (auto & tank : *tanksVector)
 	{
-		if (!tank.IsDead())
+		if (tank.IsDead()) continue;
+		if ((mission == Mission::Attack || mission == Mission::Patrol || mission == Mission::Refuel))
 		{
 			*valor += tank.DoMission(mission);
 		}
+		else
+		{
+			v = tank.DoMission(mission);
+			if (v < 0)
+			{				
+				*valor += v;
+				return true; // upgrade applicato
+			}
+		}
 	}
-	
-	
+
+	return true;
 }
 
 bool IsAnyTankAlive(const std::vector<Tank>* const tanksVector)

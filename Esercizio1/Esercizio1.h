@@ -8,5 +8,5 @@ void Game();
 void InitVector(std::vector<Tank>* const tanksVector, int amount);
 void OutputTanks(const std::vector<Tank>* const tanksVector);
 Mission SelectMission();
-void DoMission(std::vector<Tank>* const tanksVector, const Mission mission, int* valor);
+bool DoMission(std::vector<Tank>* const tanksVector, const Mission mission, int* const valor);
 bool IsAnyTankAlive(const std::vector<Tank>* const tanksVector);
