@@ -6,8 +6,39 @@
 using namespace std;
 using namespace Maddo;
 
+class Critter
+{
+public:
+	int Hunger;
+	Critter(int hunger = 0);
+	void Greet();
+
+
+};
+
+Critter::Critter(int hunger)
+{
+	MaddoLib::OutputLine("Ayy lmao nuovo critter");
+	Hunger = hunger;
+}
+void Critter::Greet()
+{
+
+	MaddoLib::OutputLine("Critter fame: " + MaddoLib::ToString(Hunger));
+
+}
+
+
+
 int main()
 {
+
+	Critter crit1(9);
+	Critter crit2(19);
+
+	crit1.Greet();
+
+	crit2.Greet();
 
 	MaddoLib::OutputLine("ayy" + MaddoLib::ToString(57));
 
@@ -50,9 +81,9 @@ int main()
 
 	// Il nome dell'arrai è un puntatore constante al primo elemento dell'array
 	// poiché gli elementi di un array sono memorizzati in blocchi di memoria contigui è possibile utilizzare il nome per un accesso random agli elementi.
- 
+
 
 	MaddoLib::OutputLine("Ayy lmao");
-    return 0;
+	return 0;
 }
 

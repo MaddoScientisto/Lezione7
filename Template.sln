@@ -3,11 +3,13 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.25928.0
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Template", "2016-11-24\2016-11-24.vcxproj", "{BBB7360A-5968-42A0-A933-2553A589B1B3}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Appunti", "2016-11-24\2016-11-24.vcxproj", "{BBB7360A-5968-42A0-A933-2553A589B1B3}"
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "MaddoLib", "MaddoCppLib\MaddoLib.vcxproj", "{BE812505-B2B6-4A6F-AD2F-D575C2DF6C6F}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Library", "Library", "{6F9C203B-CC79-4100-88EE-4D778B3DE4FA}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Esercizio1", "Esercizio1\Esercizio1.vcxproj", "{E2364CCB-9829-4A05-98E3-FBAC73AA9577}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,6 +35,14 @@ Global
 		{BE812505-B2B6-4A6F-AD2F-D575C2DF6C6F}.Release|x64.Build.0 = Release|x64
 		{BE812505-B2B6-4A6F-AD2F-D575C2DF6C6F}.Release|x86.ActiveCfg = Release|Win32
 		{BE812505-B2B6-4A6F-AD2F-D575C2DF6C6F}.Release|x86.Build.0 = Release|Win32
+		{E2364CCB-9829-4A05-98E3-FBAC73AA9577}.Debug|x64.ActiveCfg = Debug|x64
+		{E2364CCB-9829-4A05-98E3-FBAC73AA9577}.Debug|x64.Build.0 = Debug|x64
+		{E2364CCB-9829-4A05-98E3-FBAC73AA9577}.Debug|x86.ActiveCfg = Debug|Win32
+		{E2364CCB-9829-4A05-98E3-FBAC73AA9577}.Debug|x86.Build.0 = Debug|Win32
+		{E2364CCB-9829-4A05-98E3-FBAC73AA9577}.Release|x64.ActiveCfg = Release|x64
+		{E2364CCB-9829-4A05-98E3-FBAC73AA9577}.Release|x64.Build.0 = Release|x64
+		{E2364CCB-9829-4A05-98E3-FBAC73AA9577}.Release|x86.ActiveCfg = Release|Win32
+		{E2364CCB-9829-4A05-98E3-FBAC73AA9577}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
